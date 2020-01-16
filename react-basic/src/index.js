@@ -1,11 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import CommentBox from "./components/CommentBox";
+import CommentApp from "./CommentApp";
 
-const App = () => (
-  <div className="container mt-4">
-    <CommentBox />
-  </div>
-);
-
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<CommentApp />, document.getElementById("root"));

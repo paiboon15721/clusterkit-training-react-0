@@ -10,7 +10,7 @@ export default () => {
       <div className="sidebar-sticky">
         <ul className="nav flex-column">
           {menus.map(v => (
-            <li className="nav-item">
+            <li key={v.path} className="nav-item">
               <Link
                 to={v.path}
                 className={`nav-link${pathname === v.path ? " active" : ""}`}

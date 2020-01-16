@@ -5,6 +5,7 @@ import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
 import CommentApp from "./pages/CommentApp";
 import Hello from "./pages/Hello";
+import ReactUse from "./pages/ReactUse";
 
 export const menus = [
   {
@@ -21,6 +22,11 @@ export const menus = [
     path: "/hello-app",
     name: "Hello App",
     component: Hello
+  },
+  {
+    path: "/react-use",
+    name: "React Use",
+    component: ReactUse
   }
 ];
 
@@ -29,7 +35,7 @@ const App = () => (
     <Layout>
       <Switch>
         {menus.map(v => (
-          <Route path={v.path}>
+          <Route key={v.path} path={v.path}>
             <v.component />
           </Route>
         ))}

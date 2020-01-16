@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const CommentBox = () => {
   const [currentComment, setCurrentComment] = useState("");
   const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://jsonplaceholder.typicode.com/users").then(res => {
+      const loadedComments = res.data.map(v => `${v.name} ${v.phone}`);
+      setComments(loadedComments);
+    });
+  }, []);
 
   const handleTextChange = e => {
     setCurrentComment(e.target.value);
   };
 
   const handleSubmit = () => {
-    setComments([...comments, currentComment]);
+    setComments([currentComment, ...comments]);
     setCurrentComment("");
   };
 
@@ -27,8 +35,8 @@ const CommentBox = () => {
           Submit
         </button>
       </div>
-      {comments.map(v => (
-        <div className="alert alert-primary" role="alert">
+      {comments.map((v, k) => (
+        <div key={k} className="alert alert-primary" role="alert">
           {v}
         </div>
       ))}

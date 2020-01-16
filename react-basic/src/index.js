@@ -6,6 +6,8 @@ import Dashboard from "./pages/Dashboard";
 import CommentApp from "./pages/CommentApp";
 import Hello from "./pages/Hello";
 import ReactUse from "./pages/ReactUse";
+import UserTable from "./pages/UserTable";
+import "antd/dist/antd.css";
 
 export const menus = [
   {
@@ -27,6 +29,11 @@ export const menus = [
     path: "/react-use",
     name: "React Use",
     component: ReactUse
+  },
+  {
+    path: "/user-table",
+    name: "User Table",
+    component: UserTable
   }
 ];
 

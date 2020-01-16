@@ -1,0 +1,20 @@
+{
+  "name": "clusterkit-training-react-0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "update": "git add -A && git commit -m 'update' && git push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paiboon15721/clusterkit-training-react-0.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paiboon15721/clusterkit-training-react-0/issues"
+  },
+  "homepage": "https://github.com/paiboon15721/clusterkit-training-react-0#readme"
+}

@@ -7,6 +7,8 @@ import CommentApp from "./pages/CommentApp";
 import Hello from "./pages/Hello";
 import ReactUse from "./pages/ReactUse";
 import UserTable from "./pages/UserTable";
+import LoginForm from "./pages/LoginForm";
+import UncontrolForm from "./pages/UncontrolForm";
 import "antd/dist/antd.css";
 
 export const menus = [
@@ -34,6 +36,16 @@ export const menus = [
     path: "/user-table",
     name: "User Table",
     component: UserTable
+  },
+  {
+    path: "/login-form",
+    name: "Login form",
+    component: LoginForm
+  },
+  {
+    path: "/uncontrol-form",
+    name: "Uncontrol form",
+    component: UncontrolForm
   }
 ];
 

@@ -10,7 +10,7 @@ const Layout = props => {
         <div className="row">
           <MenuList />
           <main role="main" className="col-md-9 ml-sm-auto col-lg-10 px-4">
-            {props.children}
+            <div className="mt-4">{props.children}</div>
           </main>
         </div>
       </div>

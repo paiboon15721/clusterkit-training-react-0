@@ -13,7 +13,7 @@ const CommentBox = () => {
   }, []);
 
   const handleTextChange = e => {
-    setCurrentComment(e.target.value);
+    setCurrentComment(e.target.value.toUpperCase());
   };
 
   const handleSubmit = () => {

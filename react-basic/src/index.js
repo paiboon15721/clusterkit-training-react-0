@@ -1,5 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import CommentApp from "./CommentApp";
+import Layout from "./components/Layout";
 
-ReactDOM.render(<CommentApp />, document.getElementById("root"));
+ReactDOM.render(<Layout name="CommentApp" />, document.getElementById("root"));

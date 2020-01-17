@@ -15,6 +15,7 @@ import LoginForm from "./pages/LoginForm";
 import UncontrolForm from "./pages/UncontrolForm";
 import EditCompanyName from "./pages/EditCompanyName";
 import Context from "./pages/Context";
+import ReduxTest from "./pages/ReduxTest";
 import { CompanyProvider } from "./stores/company";
 import "antd/dist/antd.css";
 
@@ -58,6 +59,11 @@ export const menus = [
     path: "/context",
     name: "Context",
     component: Context
+  },
+  {
+    path: "/redux-test",
+    name: "Redux Test",
+    component: ReduxTest
   }
 ];
 

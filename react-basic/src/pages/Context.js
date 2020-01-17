@@ -1,9 +1,6 @@
-import React, { useEffect, useState, createContext, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-
-const themeContext = createContext();
-
-const themes = ["primary", "warning", "danger", "success"];
+import { ThemeProvider, themeContext } from "../stores/theme";
 
 const CommentItem = props => {
   const { theme } = useContext(themeContext);
@@ -58,20 +55,10 @@ const ThemeApp = () => {
 };
 
 const App = () => {
-  const [theme, setTheme] = useState(0);
-
-  const handleChangeTheme = () => {
-    let i = theme + 1;
-    if (i >= themes.length) {
-      i = 0;
-    }
-    setTheme(i);
-  };
-
   return (
-    <themeContext.Provider value={{ theme: themes[theme], handleChangeTheme }}>
+    <ThemeProvider>
       <ThemeApp />
-    </themeContext.Provider>
+    </ThemeProvider>
   );
 };
 

@@ -9,7 +9,6 @@ const App = () => {
       username: username.current.value,
       password: pwd.current.value
     };
-
     console.log(logObj);
   };
 

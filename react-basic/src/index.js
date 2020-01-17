@@ -15,6 +15,7 @@ import UserTable from "./pages/UserTable";
 import LoginForm from "./pages/LoginForm";
 import UncontrolForm from "./pages/UncontrolForm";
 import EditCompanyName from "./pages/EditCompanyName";
+import Context from "./pages/Context";
 import "antd/dist/antd.css";
 
 export const menus = [
@@ -57,6 +58,11 @@ export const menus = [
     path: "/edit-company-name",
     name: "Edit Company Name",
     component: EditCompanyName
+  },
+  {
+    path: "/context",
+    name: "Context",
+    component: Context
   }
 ];
 

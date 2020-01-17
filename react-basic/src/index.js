@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
 import {
   Switch,
   BrowserRouter as Router,
@@ -16,6 +18,7 @@ import UncontrolForm from "./pages/UncontrolForm";
 import EditCompanyName from "./pages/EditCompanyName";
 import Context from "./pages/Context";
 import ReduxTest from "./pages/ReduxTest";
+import MoreRedux from "./pages/MoreRedux";
 import { CompanyProvider } from "./stores/company";
 import "antd/dist/antd.css";
 
@@ -64,27 +67,47 @@ export const menus = [
     path: "/redux-test",
     name: "Redux Test",
     component: ReduxTest
+  },
+  {
+    path: "/more-redux",
+    name: "More Redux",
+    component: MoreRedux
   }
 ];
 
+function counter(state = 0, action) {
+  switch (action.type) {
+    case "INCREMENT":
+      return state + action.payload;
+    case "DECREMENT":
+      return state - action.payload;
+    default:
+      return state;
+  }
+}
+
+let store = createStore(counter);
+
 const App = () => {
   return (
-    <Router>
-      <CompanyProvider>
-        <Layout>
-          <Switch>
-            {menus.map(v => (
-              <Route key={v.path} path={v.path}>
-                <v.component />
+    <Provider store={store}>
+      <Router>
+        <CompanyProvider>
+          <Layout>
+            <Switch>
+              {menus.map(v => (
+                <Route key={v.path} path={v.path}>
+                  <v.component />
+                </Route>
+              ))}
+              <Route path="/">
+                <Redirect to="/dashboard" />
               </Route>
-            ))}
-            <Route path="/">
-              <Redirect to="/dashboard" />
-            </Route>
-          </Switch>
-        </Layout>
-      </CompanyProvider>
-    </Router>
+            </Switch>
+          </Layout>
+        </CompanyProvider>
+      </Router>
+    </Provider>
   );
 };
 

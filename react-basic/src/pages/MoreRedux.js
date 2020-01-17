@@ -1,19 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Progress } from "antd";
 
-const ShowCounter = props => {
+const App = props => {
   return (
     <div>
-      <h1>{props.counter}</h1>
+      <Progress type="circle" percent={props.counter} />
       <button
         className="btn btn-primary"
-        onClick={() => props.dispatch({ type: "INCREMENT", payload: 5 })}
+        onClick={() => props.dispatch({ type: "INCREMENT", payload: 1 })}
       >
         Increment
       </button>
       <button
         className="btn btn-danger"
-        onClick={() => props.dispatch({ type: "DECREMENT", payload: 5 })}
+        onClick={() => props.dispatch({ type: "DECREMENT", payload: 1 })}
       >
         Decrement
       </button>
@@ -27,4 +28,4 @@ const mapStateToProps = function(state) {
   };
 };
 
-export default connect(mapStateToProps)(ShowCounter);
+export default connect(mapStateToProps)(App);

@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createStore } from "redux";
 import { Provider } from "react-redux";
 import {
   Switch,
@@ -8,6 +7,7 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
+import store from "./reducers";
 import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
 import CommentApp from "./pages/CommentApp";
@@ -19,6 +19,7 @@ import EditCompanyName from "./pages/EditCompanyName";
 import Context from "./pages/Context";
 import ReduxTest from "./pages/ReduxTest";
 import MoreRedux from "./pages/MoreRedux";
+import ReduxFetch from "./pages/ReduxFetch";
 import { CompanyProvider } from "./stores/company";
 import "antd/dist/antd.css";
 
@@ -72,21 +73,13 @@ export const menus = [
     path: "/more-redux",
     name: "More Redux",
     component: MoreRedux
+  },
+  {
+    path: "/redux-fetch",
+    name: "Redux Fetch",
+    component: ReduxFetch
   }
 ];
-
-function counter(state = 0, action) {
-  switch (action.type) {
-    case "INCREMENT":
-      return state + action.payload;
-    case "DECREMENT":
-      return state - action.payload;
-    default:
-      return state;
-  }
-}
-
-let store = createStore(counter);
 
 const App = () => {
   return (

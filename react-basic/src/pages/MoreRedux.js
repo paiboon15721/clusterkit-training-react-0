@@ -24,7 +24,7 @@ const App = props => {
 
 const mapStateToProps = function(state) {
   return {
-    counter: state
+    counter: state.counter
   };
 };
 

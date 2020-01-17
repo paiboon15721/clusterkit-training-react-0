@@ -5,16 +5,10 @@ const ShowCounter = props => {
   return (
     <div>
       <h1>{props.counter}</h1>
-      <button
-        className="btn btn-primary"
-        onClick={() => props.dispatch({ type: "INCREMENT", payload: 5 })}
-      >
+      <button className="btn btn-primary" onClick={() => props.increment(5)}>
         Increment
       </button>
-      <button
-        className="btn btn-danger"
-        onClick={() => props.dispatch({ type: "DECREMENT", payload: 5 })}
-      >
+      <button className="btn btn-danger" onClick={() => props.decrement(5)}>
         Decrement
       </button>
     </div>
@@ -23,8 +17,23 @@ const ShowCounter = props => {
 
 const mapStateToProps = function(state) {
   return {
-    counter: state
+    counter: state.counter
   };
 };
 
-export default connect(mapStateToProps)(ShowCounter);
+const mapDispatchToProps = {
+  increment: function(v) {
+    return {
+      type: "INCREMENT",
+      payload: v
+    };
+  },
+  decrement: function(v) {
+    return {
+      type: "DECREMENT",
+      payload: v
+    };
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShowCounter);

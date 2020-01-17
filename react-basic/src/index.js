@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import {
   Switch,
@@ -9,13 +9,13 @@ import {
 import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
 import CommentApp from "./pages/CommentApp";
-import Hello from "./pages/Hello";
 import ReactUse from "./pages/ReactUse";
 import UserTable from "./pages/UserTable";
 import LoginForm from "./pages/LoginForm";
 import UncontrolForm from "./pages/UncontrolForm";
 import EditCompanyName from "./pages/EditCompanyName";
 import Context from "./pages/Context";
+import { CompanyProvider } from "./stores/company";
 import "antd/dist/antd.css";
 
 export const menus = [
@@ -28,11 +28,6 @@ export const menus = [
     path: "/comment-app",
     name: "Comment App",
     component: CommentApp
-  },
-  {
-    path: "/hello-app",
-    name: "Hello App",
-    component: Hello
   },
   {
     path: "/react-use",
@@ -67,28 +62,22 @@ export const menus = [
 ];
 
 const App = () => {
-  const [companyName, setCompanyName] = useState("ClusterKit");
   return (
     <Router>
-      <Layout companyName={companyName}>
-        <Switch>
-          {menus.map(v => (
-            <Route key={v.path} path={v.path}>
-              {v.path === "/edit-company-name" ? (
-                <v.component
-                  companyName={companyName}
-                  setCompanyName={setCompanyName}
-                />
-              ) : (
+      <CompanyProvider>
+        <Layout>
+          <Switch>
+            {menus.map(v => (
+              <Route key={v.path} path={v.path}>
                 <v.component />
-              )}
+              </Route>
+            ))}
+            <Route path="/">
+              <Redirect to="/dashboard" />
             </Route>
-          ))}
-          <Route path="/">
-            <Redirect to="/dashboard" />
-          </Route>
-        </Switch>
-      </Layout>
+          </Switch>
+        </Layout>
+      </CompanyProvider>
     </Router>
   );
 };

@@ -3,7 +3,7 @@ import Logo from "./Logo";
 
 export default props => (
   <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <Logo companyName={props.companyName} />
+    <Logo />
     <input
       className="form-control form-control-dark w-100"
       type="text"

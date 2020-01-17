@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { companyContext } from "../stores/company";
 
-const App = props => {
+const App = () => {
+  const { companyName, setCompanyName } = useContext(companyContext);
   return (
     <div className="form-group">
       <input
         className="form-control"
-        value={props.companyName}
-        onChange={e => props.setCompanyName(e.target.value)}
+        value={companyName}
+        onChange={e => setCompanyName(e.target.value)}
       />
     </div>
   );
